@@ -19,7 +19,70 @@ namespace csharp
             this.item = item;
         }
 
-        public void IncreaseQuality()
+        public void UpdateQuality()
+        {
+            switch (item.Name)
+            {
+                case SpecialCases.AGED_BRIE:
+                    UpdateAgedBrie();
+                    break;
+                case SpecialCases.BACKSTAGE_PASSES:
+                    UpdateBackstagePasses();
+                    break;
+                case SpecialCases.SULFURAS:
+                    // Nothing to be done for Sulfuras
+                    break;
+                default:
+                    UpdateStandardItem();
+                    break;
+            }
+        }
+
+        private void UpdateStandardItem()
+        {
+            DecreaseQuality();
+            UpdateExpiry();
+
+            if (IsExpired())
+            {
+                DecreaseQuality();
+            }
+        }
+
+        private void UpdateBackstagePasses()
+        {
+            IncreaseQuality();
+
+            if (Expiry < 11)
+            {
+                IncreaseQuality();
+            }
+
+            if (Expiry < 6)
+            {
+                IncreaseQuality();
+            }
+
+            UpdateExpiry();
+
+            if (IsExpired())
+            {
+                DropQualityToZero();
+            }
+        }
+
+        private void UpdateAgedBrie()
+        {
+            IncreaseQuality();
+            UpdateExpiry();
+
+            if (IsExpired())
+            {
+                IncreaseQuality();
+            }
+        }
+
+        private void IncreaseQuality()
         {
             if (item.Quality < 50)
             {
@@ -27,7 +90,7 @@ namespace csharp
             }
         }
 
-        public void DecreaseQuality()
+        private void DecreaseQuality()
         {
             if (item.Quality > 0)
             {
@@ -35,12 +98,12 @@ namespace csharp
             }
         }
 
-        public void DropQualityToZero()
+        private void DropQualityToZero()
         {
             item.Quality = 0;
         }
 
-        public void UpdateExpiry()
+        private void UpdateExpiry()
         {
             item.SellIn--;
         }
