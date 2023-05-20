@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InventoryItem.cs" />
+    <Compile Include="Policies\ConjuredPolicy.cs" />
     <Compile Include="Policies\Policies.cs" />
     <Compile Include="Policies\Policy.cs" />
     <Compile Include="Policies\AgedBriePolicy.cs" />

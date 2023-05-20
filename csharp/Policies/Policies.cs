@@ -18,6 +18,7 @@ namespace csharp.Policies
                 policies.Add(AgedBriePolicy.ID, new AgedBriePolicy());
                 policies.Add(BackstagePassesPolicy.ID, new BackstagePassesPolicy());
                 policies.Add(SulfurasPolicy.ID, new SulfurasPolicy());
+                policies.Add(ConjuredPolicy.ID, new ConjuredPolicy());
                 policies.Add(GenericPolicy.ID, new GenericPolicy());
             }
 
