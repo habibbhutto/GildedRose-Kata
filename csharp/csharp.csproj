@@ -61,20 +61,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApprovalTest.cs" />
+    <Compile Include="DomainEntities\InventoryItem.cs" />
+    <Compile Include="Policies\ConjuredPolicy.cs" />
+    <Compile Include="Policies\Policies.cs" />
+    <Compile Include="Policies\Policy.cs" />
+    <Compile Include="Policies\AgedBriePolicy.cs" />
+    <Compile Include="Policies\BackstagePassesPolicy.cs" />
+    <Compile Include="Policies\GenericPolicy.cs" />
+    <Compile Include="Policies\SulfurasPolicy.cs" />
+    <Compile Include="Policies\Constants\PolicyNames.cs" />
+    <Compile Include="Tests\ApprovalTest.cs" />
     <Compile Include="GildedRose.cs" />
-    <Compile Include="GildedRoseTest.cs" />
-    <Compile Include="Item.cs" />
+    <Compile Include="Tests\GildedRoseTest.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Docs\README.md" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tests\ApprovalTest.ThirtyDays.approved.txt" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
