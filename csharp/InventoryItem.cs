@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using csharp.Policies;
 
 namespace csharp
 {
-    class InventoryItem
+    public class InventoryItem
     {
         private Item item;
 
@@ -21,68 +22,11 @@ namespace csharp
 
         public void UpdateQuality()
         {
-            switch (item.Name)
-            {
-                case SpecialCases.AGED_BRIE:
-                    UpdateAgedBrie();
-                    break;
-                case SpecialCases.BACKSTAGE_PASSES:
-                    UpdateBackstagePasses();
-                    break;
-                case SpecialCases.SULFURAS:
-                    // Nothing to be done for Sulfuras
-                    break;
-                default:
-                    UpdateStandardItem();
-                    break;
-            }
+            Policy policy = Policies.Policies.GetPolicy(item.Name);
+            policy.Execute(this);
         }
 
-        private void UpdateStandardItem()
-        {
-            DecreaseQuality();
-            UpdateExpiry();
-
-            if (IsExpired())
-            {
-                DecreaseQuality();
-            }
-        }
-
-        private void UpdateBackstagePasses()
-        {
-            IncreaseQuality();
-
-            if (Expiry < 11)
-            {
-                IncreaseQuality();
-            }
-
-            if (Expiry < 6)
-            {
-                IncreaseQuality();
-            }
-
-            UpdateExpiry();
-
-            if (IsExpired())
-            {
-                DropQualityToZero();
-            }
-        }
-
-        private void UpdateAgedBrie()
-        {
-            IncreaseQuality();
-            UpdateExpiry();
-
-            if (IsExpired())
-            {
-                IncreaseQuality();
-            }
-        }
-
-        private void IncreaseQuality()
+        public void IncreaseQuality()
         {
             if (item.Quality < 50)
             {
@@ -90,7 +34,7 @@ namespace csharp
             }
         }
 
-        private void DecreaseQuality()
+        public void DecreaseQuality()
         {
             if (item.Quality > 0)
             {
@@ -98,12 +42,12 @@ namespace csharp
             }
         }
 
-        private void DropQualityToZero()
+        public void DropQualityToZero()
         {
             item.Quality = 0;
         }
 
-        private void UpdateExpiry()
+        public void UpdateExpiry()
         {
             item.SellIn--;
         }
