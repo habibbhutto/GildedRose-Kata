@@ -11,14 +11,12 @@ namespace csharp.Policies
         public static string ID { get => SpecialCases.CONJURED; }
         public void Execute(InventoryItem item)
         {
-            item.DecreaseQuality();
-            item.DecreaseQuality();
+            item.DecreaseQualityBy(2);
             item.UpdateExpiry();
 
             if (item.IsExpired())
             {
-                item.DecreaseQuality();
-                item.DecreaseQuality();
+                item.DecreaseQualityBy(2);
             }
         }
     }
