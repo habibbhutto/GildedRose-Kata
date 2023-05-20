@@ -29,7 +29,12 @@ design patterns. It's not typical Strategy or State.
 
 This design has benefits over typical inheritence based polymorphism because it's based on the 
 concpept of composition. We can compose new policies by leveraging existing ones. In addition, 
-a policy can be used for multiple item categories in Policies configuration.
+a policy can be used for multiple item categories in Policies configuration. Also, it is 
+possible to add new interfaces as need arises, and multiple interaces can be implemented. While
+inheritence in Csharp is single inheritence.
+
+The design is flexible enough that it can be changed and refactored easily if there is need to 
+abandon this one and go for a new structure.
 
 The PolicyNames in constants are added to avoid potential bugs caused by magic strings.
 
