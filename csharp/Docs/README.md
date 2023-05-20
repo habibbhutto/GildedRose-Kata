@@ -128,3 +128,10 @@ abandon this one and go for a new structure.
 The `PolicyNames` in constants are added to avoid potential bugs caused by magic strings.
 
 The tests are moved to `Tests` folder so that they have their own home for better organization.
+
+# How to run this solution?
+
+1. Clone the repository
+2. Run `git switch feature/conjured-quality-update`
+3. Open `csharp/csharp.sln` in Visual Studio
+4. Run all tests by pressing `Ctrl+R A`
