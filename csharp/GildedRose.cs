@@ -10,59 +10,66 @@ namespace csharp
             this.Items = InventoryItem.ConvertItemsToInventoryItems(Items);
         }
 
-        private void UpdateItem(InventoryItem item)
+        private void UpdateItemQuality(InventoryItem item)
         {
             switch (item.Name)
             {
                 case SpecialCases.AGED_BRIE:
-                    {
-                        item.IncreaseQuality();
-                        item.UpdateExpiry();
-
-                        if (item.IsExpired())
-                        {
-                            item.IncreaseQuality();
-                        }
-                    }
+                    UpdateAgedBrie(item);
                     break;
                 case SpecialCases.BACKSTAGE_PASSES:
-                    {
-                        item.IncreaseQuality();
-
-                        if (item.Expiry < 11)
-                        {
-                            item.IncreaseQuality();
-                        }
-
-                        if (item.Expiry < 6)
-                        {
-                            item.IncreaseQuality();
-                        }
-
-                        item.UpdateExpiry();
-
-                        if (item.IsExpired())
-                        {
-                            item.DropQualityToZero();
-                        }
-                    }
+                    UpdateBackstagePasses(item);
                     break;
                 case SpecialCases.SULFURAS:
-                    {
-                        // Nothing to be done for Sulfuras
-                    }
+                    // Nothing to be done for Sulfuras
                     break;
                 default:
-                    {
-                        item.DecreaseQuality();
-                        item.UpdateExpiry();
-
-                        if (item.IsExpired())
-                        {
-                            item.DecreaseQuality();
-                        }
-                    }
+                    UpdateStandardItem(item);
                     break;
+            }
+        }
+
+        private void UpdateStandardItem(InventoryItem item)
+        {
+            item.DecreaseQuality();
+            item.UpdateExpiry();
+
+            if (item.IsExpired())
+            {
+                item.DecreaseQuality();
+            }
+        }
+
+        private void UpdateBackstagePasses(InventoryItem item)
+        {
+            item.IncreaseQuality();
+
+            if (item.Expiry < 11)
+            {
+                item.IncreaseQuality();
+            }
+
+            if (item.Expiry < 6)
+            {
+                item.IncreaseQuality();
+            }
+
+            item.UpdateExpiry();
+
+            if (item.IsExpired())
+            {
+                item.DropQualityToZero();
+            }
+        }
+
+        private void UpdateAgedBrie(InventoryItem item)
+        {
+            item.IncreaseQuality();
+            item.UpdateExpiry();
+
+            if (item.IsExpired())
+            {
+                item.IncreaseQuality();
             }
         }
 
@@ -75,7 +82,7 @@ namespace csharp
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                UpdateItem(Items[i]);
+                UpdateItemQuality(Items[i]);
             }
         }
     }
