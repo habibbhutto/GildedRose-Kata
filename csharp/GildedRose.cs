@@ -14,60 +14,46 @@ namespace csharp
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+                if (Items[i].Name != SpecialCases.AGED_BRIE &&
+                    Items[i].Name != SpecialCases.BACKSTAGE_PASSES)
                 {
-                    if (Items[i].Quality > 0)
+                    if (Items[i].Name != SpecialCases.SULFURAS)
                     {
-                        if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                        {
-                            Items[i].DecreaseQuality();
-                        }
+                        Items[i].DecreaseQuality();
                     }
                 }
                 else
                 {
-                    if (Items[i].Quality < 50)
+                    Items[i].IncreaseQuality();
+
+                    if (Items[i].Name == SpecialCases.BACKSTAGE_PASSES)
                     {
-                        Items[i].IncreaseQuality();
-
-                        if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
+                        if (Items[i].Expiry < 11)
                         {
-                            if (Items[i].Expiry < 11)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].IncreaseQuality();
-                                }
-                            }
+                            Items[i].IncreaseQuality();
+                        }
 
-                            if (Items[i].Expiry < 6)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].IncreaseQuality();
-                                }
-                            }
+                        if (Items[i].Expiry < 6)
+                        {
+                            Items[i].IncreaseQuality();
                         }
                     }
                 }
 
-                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                if (Items[i].Name != SpecialCases.SULFURAS)
                 {
                     Items[i].UpdateExpiry();
                 }
 
                 if (Items[i].IsExpired())
                 {
-                    if (Items[i].Name != "Aged Brie")
+                    if (Items[i].Name != SpecialCases.AGED_BRIE)
                     {
-                        if (Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+                        if (Items[i].Name != SpecialCases.BACKSTAGE_PASSES)
                         {
-                            if (Items[i].Quality > 0)
+                            if (Items[i].Name != SpecialCases.SULFURAS)
                             {
-                                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                                {
-                                    Items[i].DecreaseQuality();
-                                }
+                                Items[i].DecreaseQuality();
                             }
                         }
                         else
@@ -77,10 +63,7 @@ namespace csharp
                     }
                     else
                     {
-                        if (Items[i].Quality < 50)
-                        {
-                            Items[i].IncreaseQuality();
-                        }
+                        Items[i].IncreaseQuality();
                     }
                 }
             }

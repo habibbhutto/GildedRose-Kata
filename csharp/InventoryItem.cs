@@ -21,12 +21,18 @@ namespace csharp
 
         public void IncreaseQuality()
         {
-            item.Quality++;
+            if (item.Quality < 50)
+            {
+                item.Quality++;
+            }
         }
 
         public void DecreaseQuality()
         {
-            item.Quality--;
+            if (item.Quality > 0)
+            {
+                item.Quality--;
+            }
         }
 
         public void DropQualityToZero()
