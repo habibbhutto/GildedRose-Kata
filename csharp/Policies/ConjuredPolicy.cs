@@ -8,7 +8,7 @@ namespace csharp.Policies
 {
     class ConjuredPolicy : Policy
     {
-        public static string ID { get => SpecialCases.CONJURED; }
+        public static string ID { get => PolicyNames.CONJURED; }
         public void Execute(InventoryItem item)
         {
             item.DecreaseQualityBy(2);

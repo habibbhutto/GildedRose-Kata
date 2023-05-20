@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp
 {
-    public static class SpecialCases
+    public static class PolicyNames
     {
         public const string DEFAULT = "Default";
         public const string BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";

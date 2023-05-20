@@ -8,7 +8,7 @@ namespace csharp.Policies
 {
     class GenericPolicy : Policy
     {
-        public static string ID { get => SpecialCases.DEFAULT; }
+        public static string ID { get => PolicyNames.DEFAULT; }
         public void Execute(InventoryItem item)
         {
             item.DecreaseQuality();

@@ -8,7 +8,7 @@ namespace csharp.Policies
 {
     public class BackstagePassesPolicy : Policy
     {
-        public static string ID { get => SpecialCases.BACKSTAGE_PASSES; }
+        public static string ID { get => PolicyNames.BACKSTAGE_PASSES; }
         public void Execute(InventoryItem item)
         {
             item.IncreaseQuality();

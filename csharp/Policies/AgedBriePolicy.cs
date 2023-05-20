@@ -8,7 +8,7 @@ namespace csharp.Policies
 {
     public class AgedBriePolicy : Policy
     {
-        public static string ID { get => SpecialCases.AGED_BRIE; }
+        public static string ID { get => PolicyNames.AGED_BRIE; }
         public void Execute(InventoryItem item)
         {
             item.IncreaseQuality();

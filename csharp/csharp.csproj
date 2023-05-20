@@ -61,7 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InventoryItem.cs" />
+    <Compile Include="DomainEntities\InventoryItem.cs" />
     <Compile Include="Policies\ConjuredPolicy.cs" />
     <Compile Include="Policies\Policies.cs" />
     <Compile Include="Policies\Policy.cs" />
@@ -69,11 +69,11 @@
     <Compile Include="Policies\BackstagePassesPolicy.cs" />
     <Compile Include="Policies\GenericPolicy.cs" />
     <Compile Include="Policies\SulfurasPolicy.cs" />
-    <Compile Include="SpecialCases.cs" />
+    <Compile Include="Policies\Constants\SpecialCases.cs" />
     <Compile Include="Tests\ApprovalTest.cs" />
     <Compile Include="GildedRose.cs" />
     <Compile Include="Tests\GildedRoseTest.cs" />
-    <Compile Include="Item.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

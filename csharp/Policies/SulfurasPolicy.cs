@@ -8,7 +8,7 @@ namespace csharp.Policies
 {
     public class SulfurasPolicy : Policy
     {
-        public static string ID { get => SpecialCases.SULFURAS; }
+        public static string ID { get => PolicyNames.SULFURAS; }
 
         public void Execute(InventoryItem item)
         {
