@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csharp
+namespace csharp.Policies
 {
     public static class PolicyNames
     {
