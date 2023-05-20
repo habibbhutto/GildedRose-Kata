@@ -10,32 +10,41 @@ namespace csharp
     {
         private Item item;
 
+        public string Name { get => item.Name; }
+        public int Quality { get => item.Quality; }
+        public int Expiry { get => item.SellIn; }
+
         public InventoryItem(Item item)
         {
             this.item = item;
         }
 
-        public void increaseQuality()
+        public void IncreaseQuality()
         {
             item.Quality++;
         }
 
-        public void decreaseQuality()
+        public void DecreaseQuality()
         {
             item.Quality--;
         }
 
-        public void updateExpiry()
+        public void DropQualityToZero()
+        {
+            item.Quality = 0;
+        }
+
+        public void UpdateExpiry()
         {
             item.SellIn--;
         }
 
-        public bool isExpired()
+        public bool IsExpired()
         {
             return item.SellIn < 0;
         }
 
-        public static IList<InventoryItem> convertItemsToInventoryItems(IList<Item> items)
+        public static IList<InventoryItem> ConvertItemsToInventoryItems(IList<Item> items)
         {
             IList<InventoryItem> inventoryItems = new List<InventoryItem>();
             foreach (var item in items)

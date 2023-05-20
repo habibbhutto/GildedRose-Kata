@@ -14,7 +14,7 @@ namespace csharp
             };
 
             GildedRose app = new GildedRose(Items);
-            app.UpdateQuality();
+            app.DailyUpdate();
 
             Assert.AreEqual("Some standard item", Items[0].Name);
             Assert.AreEqual(-1, Items[0].SellIn);
@@ -27,12 +27,12 @@ namespace csharp
             IList<Item> Items = new List<Item> { new Item { Name = "Some standard item", SellIn = -1, Quality = 0 } };
             GildedRose app = new GildedRose(Items);
 
-            app.UpdateQuality();
+            app.DailyUpdate();
             Assert.AreEqual("Some standard item", Items[0].Name);
             Assert.AreEqual(-2, Items[0].SellIn);
             Assert.AreEqual(0, Items[0].Quality);
 
-            app.UpdateQuality();
+            app.DailyUpdate();
             Assert.AreEqual("Some standard item", Items[0].Name);
             Assert.AreEqual(-3, Items[0].SellIn);
             Assert.AreEqual(0, Items[0].Quality);
@@ -44,7 +44,7 @@ namespace csharp
             IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 2, Quality = 10 } };
             GildedRose app = new GildedRose(Items);
 
-            app.UpdateQuality();
+            app.DailyUpdate();
             Assert.AreEqual("Aged Brie", Items[0].Name);
             Assert.AreEqual(1, Items[0].SellIn);
             Assert.AreEqual(11, Items[0].Quality);
@@ -57,7 +57,7 @@ namespace csharp
                 Name = "Aged Brie", SellIn = -1, Quality = 49 } };
             GildedRose app = new GildedRose(Items);
 
-            app.UpdateQuality();
+            app.DailyUpdate();
             Assert.AreEqual("Aged Brie", Items[0].Name);
             Assert.AreEqual(-2, Items[0].SellIn);
             Assert.AreEqual(50, Items[0].Quality);
@@ -69,7 +69,7 @@ namespace csharp
             IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 3, Quality = 50 } };
             GildedRose app = new GildedRose(Items);
 
-            app.UpdateQuality();
+            app.DailyUpdate();
             Assert.AreEqual("Aged Brie", Items[0].Name);
             Assert.AreEqual(2, Items[0].SellIn);
             Assert.AreEqual(50, Items[0].Quality);
@@ -85,7 +85,7 @@ namespace csharp
             } };
             GildedRose app = new GildedRose(Items);
 
-            app.UpdateQuality();
+            app.DailyUpdate();
             Assert.AreEqual("Sulfuras, Hand of Ragnaros", Items[0].Name);
             Assert.AreEqual(3, Items[0].SellIn);
             Assert.AreEqual(80, Items[0].Quality);
@@ -101,7 +101,7 @@ namespace csharp
             } };
             GildedRose app = new GildedRose(Items);
 
-            app.UpdateQuality();
+            app.DailyUpdate();
             Assert.AreEqual("Backstage passes to a TAFKAL80ETC concert", Items[0].Name);
             Assert.AreEqual(14, Items[0].SellIn);
             Assert.AreEqual(21, Items[0].Quality);
@@ -117,7 +117,7 @@ namespace csharp
             } };
             GildedRose app = new GildedRose(Items);
 
-            app.UpdateQuality();
+            app.DailyUpdate();
             Assert.AreEqual("Backstage passes to a TAFKAL80ETC concert", Items[0].Name);
             Assert.AreEqual(9, Items[0].SellIn);
             Assert.AreEqual(22, Items[0].Quality);
@@ -133,7 +133,7 @@ namespace csharp
             } };
             GildedRose app = new GildedRose(Items);
 
-            app.UpdateQuality();
+            app.DailyUpdate();
             Assert.AreEqual("Backstage passes to a TAFKAL80ETC concert", Items[0].Name);
             Assert.AreEqual(4, Items[0].SellIn);
             Assert.AreEqual(23, Items[0].Quality);
@@ -149,7 +149,7 @@ namespace csharp
             } };
             GildedRose app = new GildedRose(Items);
 
-            app.UpdateQuality();
+            app.DailyUpdate();
             Assert.AreEqual("Backstage passes to a TAFKAL80ETC concert", Items[0].Name);
             Assert.AreEqual(-1, Items[0].SellIn);
             Assert.AreEqual(0, Items[0].Quality);
@@ -165,12 +165,12 @@ namespace csharp
             } };
             GildedRose app = new GildedRose(Items);
 
-            app.UpdateQuality();
+            app.DailyUpdate();
             Assert.AreEqual("A new item contracted", Items[0].Name);
             Assert.AreEqual(0, Items[0].SellIn);
             Assert.AreEqual(7, Items[0].Quality);
 
-            app.UpdateQuality();
+            app.DailyUpdate();
             Assert.AreEqual("A new item contracted", Items[0].Name);
             Assert.AreEqual(-1, Items[0].SellIn);
             Assert.AreEqual(5, Items[0].Quality);
